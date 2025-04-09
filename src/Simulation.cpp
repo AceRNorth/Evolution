@@ -280,106 +280,78 @@ void Simulation::set_release_times(const std::filesystem::path& filepath)
 void Simulation::set_inheritance(InheritanceParams inher_params)
 {
 	double gamma = inher_params.gamma;
-	double xi = inher_params.xi;
-	double e = inher_params.e;
+	double mother_w,mother_d,mother_r,father_w,father_d,father_r,mother_a,father_a,mother_b,father_b;
+	double mother_e,father_e,xi;
+	int i1,i2,j1,j2,k1,k2;
+	std::cout<<"homing rate A: "<<inher_params.eA<<"  homing rate B: "<<inher_params.eB<<";  fit cost A: "<<inher_params.xiA<<"; fit cost B: "<<inher_params.xiB<<std::endl;
 
-	// fraction of genotypes with index 0: ww, 1: wd, 2: dd, 3: wr, 4: rr, 5: dr
-	std::array<double, 6> f_ww_ww = {1, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_ww_wd = {(1 - e - gamma) * 0.5, (1 + e) * 0.5, 0, gamma * 0.5, 0, 0};
-	std::array<double, 6> f_ww_dd = {0, 1, 0, 0, 0, 0};
-	std::array<double, 6> f_ww_wr = {0.5, 0, 0, 0.5, 0, 0};
-	std::array<double, 6> f_ww_rr = {0, 0, 0, 1, 0, 0};
-	std::array<double, 6> f_ww_dr = {0, 0.5, 0, 0.5, 0, 0};
+	for(int i=0;i<constants::num_gen;++i)
+	{
+	for(int j=0;j<constants::num_gen;++j)
+	{
+	for(int k=0;k<constants::num_gen;++k)
+	{
+	mother_w=0;mother_d=0;mother_r=0;father_w=0;father_d=0;father_r=0;mother_a=0;father_a=0;mother_b=0;father_b=0;
+	i1=1+i % 6;
+	j1=1+j % 6;
+	k1=1+k % 6;
+	i2=1+int(i/6.0);
+	j2=1+int(j/6.0);
+	k2=1+int(k/6.0);
+	if(i2==1){mother_e=inher_params.eA;xi=inher_params.xiA;};
+	if(i2==2)
+		{
+		mother_e=(inher_params.eA+inher_params.eB)*0.5;
+		xi=(inher_params.xiA+inher_params.xiB)*0.5;
+		};
+	if(i2==3){mother_e=inher_params.eB;xi=inher_params.xiB;};
+	if(j2==1){father_e=inher_params.eA;};
+	if(j2==2){father_e=(inher_params.eA+inher_params.eB)*0.5;};
+	if(j2==3){father_e=inher_params.eB;};
 
-	std::array<double, 6> f_wd_ww = {(1 - xi)*(1 - e - gamma)*0.5, (1 - xi)*(1 + e)*0.5, 0, (1 - xi)*gamma*0.5, 0, 0};
-	std::array<double, 6> f_wd_wd = {(1 - xi)*(1 - e - gamma)*(1 - e - gamma)* 0.25, (1 - xi)*(1 - e - gamma)*(1 + e)*0.5, (1 - xi)*(1 + e)*(1 + e)*0.25, (1 - xi)*(1 - e - gamma)*gamma*0.5, (1 - xi)*gamma*gamma*0.25, (1 - xi)*(1 + e)*gamma*0.5};
-	std::array<double, 6> f_wd_dd = {0, (1 - xi)*(1 - e - gamma)*0.5, (1 - xi)*(1 + e)*0.5, 0, 0, (1-xi)*gamma*0.5};
-	std::array<double, 6> f_wd_wr = {(1 - xi)*(1 - e - gamma)*0.25, (1 - xi)*(1 + e)*0.25, 0, (1 - xi)*((1 - e - gamma)*0.25 + (gamma * 0.25)), (1 - xi)*gamma*0.25, (1 - xi)*(1 + e)*0.25};
-	std::array<double, 6> f_wd_rr = {0, 0, 0, (1 - xi)*(1 - e - gamma)*0.5, (1 - xi)*gamma*0.5, (1 - xi)*(1 + e)*0.5};
-	std::array<double, 6> f_wd_dr = {0, (1 - xi)*(1 - e - gamma)*0.25, (1 - xi)*(1 + e)*0.25, (1 - xi)*(1 - e - gamma)*0.25, (1 - xi)*gamma*0.25, (1 - xi)*((1 + e)*0.25 + gamma*0.25)};
+	if(i1==1){mother_w=1;mother_d=0;mother_r=0;};
+	if(i1==2){mother_w=(1-xi)*(1-mother_e-gamma)*0.5;mother_d=(1-xi)*(1+mother_e)*0.5;mother_r=(1-xi)*gamma*0.5;};
+	if(i1==3){mother_w=0;mother_d=0;mother_r=0;};
+	if(i1==4){mother_w=0.5;mother_d=0;mother_r=0.5;};
+	if(i1==5){mother_w=0;mother_d=0;mother_r=0;};
+	if(i1==6){mother_w=0;mother_d=0;mother_r=0;};
+
+	if(j1==1){father_w=1;father_d=0;father_r=0;};
+	if(j1==2){father_w=(1-father_e-gamma)*0.5;father_d=(1+father_e)*0.5;father_r=gamma*0.5;};
+	if(j1==3){father_w=0;father_d=1;father_r=0;};
+	if(j1==4){father_w=0.5;father_d=0;father_r=0.5;};
+	if(j1==5){father_w=0;father_d=0;father_r=1;};
+	if(j1==6){father_w=0;father_d=0.5;father_r=0.5;};
+
+	if(i2==1){mother_a=1;mother_b=0;};
+	if(i2==2){mother_a=0.5;mother_b=0.5;};
+	if(i2==3){mother_a=0;mother_b=1;};
 	
-	std::array<double, 6> f_dd_ww = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dd_wd = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dd_dd = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dd_wr = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dd_rr = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dd_dr = {0, 0, 0, 0, 0, 0};
+	if(j2==1){father_a=1;father_b=0;};
+	if(j2==2){father_a=0.5;father_b=0.5;};
+	if(j2==3){father_a=0;father_b=1;};
 
-	std::array<double, 6> f_wr_ww = {0.5, 0, 0, 0.5, 0, 0};
-	std::array<double, 6> f_wr_wd = {(1 - e - gamma)*0.25, (1 + e)*0.25, 0, (gamma * 0.25 + (1 - e - gamma) * 0.25), gamma*0.25, (1 + e)*0.25};
-	std::array<double, 6> f_wr_dd = {0, 0.5, 0, 0, 0, 0.5};
-	std::array<double, 6> f_wr_wr = {0.25, 0, 0, 0.5, 0.25, 0};
-	std::array<double, 6> f_wr_rr = {0, 0, 0, 0.5, 0.5, 0};
-	std::array<double, 6> f_wr_dr = {0, 0.25, 0, 0.25, 0.25, 0.25};
-
-	std::array<double, 6> f_rr_ww = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_rr_wd = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_rr_dd = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_rr_wr = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_rr_rr = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_rr_dr = {0, 0, 0, 0, 0, 0};
-
-	std::array<double, 6> f_dr_ww = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dr_wd = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dr_dd = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dr_wr = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dr_rr = {0, 0, 0, 0, 0, 0};
-	std::array<double, 6> f_dr_dr = {0, 0, 0, 0, 0, 0};
-
-	for (int k=0; k<6; ++k) {
-		for (int i=0; i<6; ++i) {
-			for (int j=0; j<6; ++j) {
-				if (i==0) {
-					if (j==0) inher_fraction[i][j][k] = f_ww_ww[k];
-					else if (j==1) inher_fraction[i][j][k] = f_ww_wd[k];
-					else if (j==2) inher_fraction[i][j][k] = f_ww_dd[k];
-					else if (j==3) inher_fraction[i][j][k] = f_ww_wr[k];
-					else if (j==4) inher_fraction[i][j][k] = f_ww_rr[k];
-					else if (j==5) inher_fraction[i][j][k] = f_ww_dr[k];
-				}
-				else if (i==1) {
-					if (j==0) inher_fraction[i][j][k] = f_wd_ww[k];
-					else if (j==1) inher_fraction[i][j][k] = f_wd_wd[k];
-					else if (j==2) inher_fraction[i][j][k] = f_wd_dd[k];
-					else if (j==3) inher_fraction[i][j][k] = f_wd_wr[k];
-					else if (j==4) inher_fraction[i][j][k] = f_wd_rr[k];
-					else if (j==5) inher_fraction[i][j][k] = f_wd_dr[k];
-				}
-				else if (i==2) {
-					if (j==0) inher_fraction[i][j][k] = f_dd_ww[k];
-					else if (j==1) inher_fraction[i][j][k] = f_dd_wd[k];
-					else if (j==2) inher_fraction[i][j][k] = f_dd_dd[k];
-					else if (j==3) inher_fraction[i][j][k] = f_dd_wr[k];
-					else if (j==4) inher_fraction[i][j][k] = f_dd_rr[k];
-					else if (j==5) inher_fraction[i][j][k] = f_dd_dr[k];
-				}
-				else if (i==3) {
-					if (j==0) inher_fraction[i][j][k] = f_wr_ww[k];
-					else if (j==1) inher_fraction[i][j][k] = f_wr_wd[k];
-					else if (j==2) inher_fraction[i][j][k] = f_wr_dd[k];
-					else if (j==3) inher_fraction[i][j][k] = f_wr_wr[k];
-					else if (j==4) inher_fraction[i][j][k] = f_wr_rr[k];
-					else if (j==5) inher_fraction[i][j][k] = f_wr_dr[k];
-				}
-				else if (i==4) {
-					if (j==0) inher_fraction[i][j][k] = f_rr_ww[k];
-					else if (j==1) inher_fraction[i][j][k] = f_rr_wd[k];
-					else if (j==2) inher_fraction[i][j][k] = f_rr_dd[k];
-					else if (j==3) inher_fraction[i][j][k] = f_rr_wr[k];
-					else if (j==4) inher_fraction[i][j][k] = f_rr_rr[k];
-					else if (j==5) inher_fraction[i][j][k] = f_rr_dr[k];
-				}
-				else if (i==5) {
-					if (j==0) inher_fraction[i][j][k] = f_dr_ww[k];
-					else if (j==1) inher_fraction[i][j][k] = f_dr_wd[k];
-					else if (j==2) inher_fraction[i][j][k] = f_dr_dd[k];
-					else if (j==3) inher_fraction[i][j][k] = f_dr_wr[k];
-					else if (j==4) inher_fraction[i][j][k] = f_dr_rr[k];
-					else if (j==5) inher_fraction[i][j][k] = f_dr_dr[k];
-				}
-			}
-		}
-	}	
+	if(k1==1){inher_fraction[i][j][k]=mother_w*father_w;};
+	if(k1==2){inher_fraction[i][j][k]=mother_w*father_d+mother_d*father_w;};
+	if(k1==3){inher_fraction[i][j][k]=mother_d*father_d;};
+	if(k1==4){inher_fraction[i][j][k]=mother_w*father_r+mother_r*father_w;};
+	if(k1==5){inher_fraction[i][j][k]=mother_r*father_r;};
+	if(k1==6){inher_fraction[i][j][k]=mother_r*father_d+mother_d*father_r;};
+	
+	if(k2==1){inher_fraction[i][j][k]*=(mother_a*father_a);};
+	if(k2==2){inher_fraction[i][j][k]*=(mother_a*father_b+mother_b*father_a);};
+	if(k2==3){inher_fraction[i][j][k]*=(mother_b*father_b);};
+	};
+	};
+	};
+/*	for(int i=0;i<constants::num_gen;++i)
+	{
+	for(int j=0;j<constants::num_gen;++j)
+	{
+	for(int k=0;k<constants::num_gen;++k)
+	{
+		std::cout<<i<<"   "<<j<<"   "<<k<<"   "<<inher_fraction[i][j][k]<<std::endl;
+	}}};*/
 }
 
 /**

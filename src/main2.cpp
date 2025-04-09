@@ -37,8 +37,10 @@ int main() {
 
 	// gene drive inheritance parameters
 	double gamma;
-	double xi;
-	double e;
+	double xiA;
+	double eA;
+	double xiB;
+	double eB;
 
 	// gene drive release parameters
 	int driver_start;
@@ -82,8 +84,10 @@ int main() {
     std::cin >> comp_power;
     std::cin >> min_dev;
     std::cin >> gamma;
-    std::cin >> xi;
-    std::cin >> e;
+    std::cin >> xiA;
+    std::cin >> xiB;
+    std::cin >> eA;
+    std::cin >> eB;
     std::cin >> driver_start;
     std::cin >> num_driver_M;
     std::cin >> num_driver_sites;
@@ -123,8 +127,10 @@ int main() {
     params.comp_power = comp_power;
     params.min_dev = min_dev;
     params.gamma = gamma;
-    params.xi = xi;
-    params.e = e;
+    params.xiA = xiA;
+    params.xiB = xiB;
+    params.eA = eA;
+    params.eB = eB;
     params.driver_start = driver_start;
     params.num_driver_M = num_driver_M;
     params.num_driver_sites = num_driver_sites;
@@ -167,8 +173,10 @@ int main() {
     Simulation simulation(params);
     InheritanceParams inher;
     inher.gamma = params.gamma;
-    inher.xi = params.xi;
-    inher.e = params.e;
+    inher.xiA = params.xiA;
+    inher.xiB = params.xiB;
+    inher.eA = params.eA;
+    inher.eB = params.eB;
     simulation.set_inheritance(inher);
     simulation.set_boundary_type(boundary);
     simulation.set_dispersal_type(disp);

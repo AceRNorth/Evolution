@@ -36,11 +36,13 @@ Record::Record(RecordParams* rec_params, int rep)
 	os3 << "CoordinateList" << set_label << "run" << rep_label << ".txt";
 	coord_list.open(os3.str());
 
-	local_data << "Male populations of each genotype at each site\n";
-	local_data << "Day" << "\t" << "Site" << "\t" << "WW" << "\t" << "WD" << "\t" << "DD" << "\t" << "WR" << "\t" << "RR" << "\t" << "DR" << std::endl;
+	local_data << "Male populations of each allele at each site\n";
+	local_data << "Day" << "\t" << "Site" << "\t" << "W" << "\t" << "D" << "\t"  << "R" << "\t" << "A" << "\t" << "B" << std::endl;
+	//local_data << "Male populations of each genotype at each site\n";
+	//local_data << "Day" << "\t" << "Site" << "\t" << "WWAA" << "\t" << "WDAA" << "\t" << "DDAA" << "\t" << "WRAA" << "\t" << "RRAA" << "\t" << "DRAA" << "\t" << "WWAB" << "\t" << "WDAB" << "\t" << "DDAB" << "\t" << "WRAB" << "\t" << "RRAB" << "\t" << "DRAB" << "\t" << "WWBB" << "\t" << "WDBB" << "\t" << "DDBB" << "\t" << "WRBB" << "\t" << "RRBB" << "\t" << "DRBB" << std::endl;
 
 	global_data << "Total males of each genotype\n";
-	global_data << "Day" << "\t" << "WW" << "\t" << "WD" << "\t" << "DD" << "\t" << "WR" << "\t" << "RR" << "\t" << "DR" << std::endl;
+	global_data << "Day" << "\t" << "WWAA" << "\t" << "WDAA" << "\t" << "DDAA" << "\t" << "WRAA" << "\t" << "RRAA" << "\t" << "DRAA" << "\t" << "WWAB" << "\t" << "WDAB" << "\t" << "DDAB" << "\t" << "WRAB" << "\t" << "RRAB" << "\t" << "DRAB" << "\t" << "WWBB" << "\t" << "WDBB" << "\t" << "DDBB" << "\t" << "WRBB" << "\t" << "RRBB" << "\t" << "DRBB" << std::endl;
 
 	coord_list << "Coordinate list of the sites\n";
 	coord_list << "Site" << "\t" << "x" << "\t" << "y" << std::endl;
@@ -116,12 +118,34 @@ void Record::output_totals(int day, long long int tot_J, long long int tot_M, lo
  */
 void Record::record_local(int day, const std::vector<Patch*> &sites) 
 {
+	int W,D,R,A,B;
 	for (int pat=0; pat < sites.size(); pat += rec_sites_freq) {
 		local_data << day << "\t" << pat+1;
-		for (const auto& m_gen : sites[pat]->get_M()) {
-			local_data << "\t" << m_gen;
-		}
-		local_data << std::endl;
+
+	const auto& m_gen_vector = sites[pat]->get_M();
+	if(m_gen_vector.size()==18)
+	{
+	W= 2*m_gen_vector[0]+m_gen_vector[1]+m_gen_vector[3]+ 2*m_gen_vector[6]+m_gen_vector[7]+m_gen_vector[9]+ 2*m_gen_vector[12]+m_gen_vector[13]+m_gen_vector[15];
+	D= 2*m_gen_vector[2]+m_gen_vector[1]+m_gen_vector[5]+ 2*m_gen_vector[8]+m_gen_vector[7]+m_gen_vector[11]+ 2*m_gen_vector[14]+m_gen_vector[13]+m_gen_vector[17];
+	R= 2*m_gen_vector[4]+m_gen_vector[3]+m_gen_vector[5]+ 2*m_gen_vector[10]+m_gen_vector[9]+m_gen_vector[11]+ 2*m_gen_vector[16]+m_gen_vector[15]+m_gen_vector[17];
+
+
+	A= 2*(m_gen_vector[0]+m_gen_vector[1]+m_gen_vector[2]+ m_gen_vector[3]+m_gen_vector[4]+m_gen_vector[5])+ (m_gen_vector[6]+m_gen_vector[7]+m_gen_vector[8]+m_gen_vector[9]+m_gen_vector[10]+m_gen_vector[11]);
+	B= 2*(m_gen_vector[12]+m_gen_vector[13]+m_gen_vector[14]+ m_gen_vector[15]+m_gen_vector[16]+m_gen_vector[17])+ (m_gen_vector[6]+m_gen_vector[7]+m_gen_vector[8]+m_gen_vector[9]+m_gen_vector[10]+m_gen_vector[11]);
+	local_data << "\t" << W << "\t" << D << "\t" << R << "\t" << A << "\t" << B;
+	};
+	if(m_gen_vector.size()==6)
+	{
+	W= 2*m_gen_vector[0]+m_gen_vector[1]+m_gen_vector[3];
+	D= 2*m_gen_vector[2]+m_gen_vector[1]+m_gen_vector[5];
+	R= 2*m_gen_vector[4]+m_gen_vector[3]+m_gen_vector[5];
+	local_data << "\t" << W << "\t" << D << "\t" << R;
+	};
+
+	//	for (const auto& m_gen : sites[pat]->get_M()) {
+	//		local_data << "\t" << m_gen;
+	//	}
+	local_data << std::endl;
 	}
 }
 

@@ -12,7 +12,7 @@ add_library(gdsimslib STATIC src/Simulation.cpp src/random.cpp src/Record.cpp sr
 target_include_directories(gdsimslib PUBLIC includes)
 include_directories(includes)
 
-add_executable(gdsimsapp src/main.cpp)
+add_executable(gdsimsapp src/main2.cpp)
 target_include_directories(gdsimsapp PUBLIC includes)
 
 target_link_libraries(gdsimsapp PUBLIC gdsimslib)

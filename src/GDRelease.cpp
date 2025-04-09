@@ -34,7 +34,8 @@ bool GDRelease::is_release_time(int day)
  */
 void GDRelease::put_driver_sites(std::vector<Patch*>& rel_sites) 
 {
-    for (const auto& rel_pat : rel_sites) {
+    for (const auto& rel_pat : rel_sites) 
+    	{
 		rel_pat->add_driver_M(num_driver_M);
 	}
 }

@@ -56,6 +56,7 @@ public:
 	// interface to GDRelease
 
 	void add_driver_M(int num_driver_M);
+//	void add_B(double B_fraction);
 
 private:
 	Model* model; /**< Pointer to Model object */

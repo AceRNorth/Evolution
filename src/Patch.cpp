@@ -80,12 +80,20 @@ Patch::Patch(Model* mod, LifeParams* par, double a0, Point point)
  */
 void Patch::populate(int initial_WJ, int initial_WM, int initial_WV, int initial_WF) 
 {
+	int initial_WJB=int(initial_WJ/100.0);
+	int initial_WMB=int(initial_WM/100.0);
+	int initial_WVB=int(initial_WV/100.0);
+	int initial_WFB=int(initial_WF/100.0);
 	for (int a=0; a < constants::max_dev + 1; ++a) {
 		J[0][a] += initial_WJ;
+		J[6][a] += initial_WJ;
 	}	
 	M[0] = initial_WM;
 	V[0] = initial_WV;
 	F[0][0] = initial_WF;
+	M[6] = initial_WMB;
+	V[6] = initial_WVB;
+	F[6][0] = initial_WFB;
 
 	update_comp();
 	update_mate();
