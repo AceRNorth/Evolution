@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(CTest)
 enable_testing()
 
-add_library(gdsimslib STATIC src/Simulation.cpp src/random.cpp src/Record.cpp src/BoundaryStrategy.cpp src/Dispersal.cpp src/GDRelease.cpp src/Aestivation.cpp src/Patch.cpp src/Model.cpp src/Seasonality.cpp)
+add_library(gdsimslib STATIC src/Simulation.cpp src/random.cpp src/Record.cpp src/BoundaryStrategy.cpp src/Dispersal.cpp src/GDRelease.cpp src/Aestivation.cpp src/Patch.cpp src/Model.cpp src/Seasonality.cpp src/globals.cpp)
 
 target_include_directories(gdsimslib PUBLIC includes)
 include_directories(includes)

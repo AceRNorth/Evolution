@@ -41,6 +41,7 @@ CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../includes/Patch.h
 CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../includes/Point.h
 CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../includes/Seasonality.h
 CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../includes/constants.h
+CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../includes/globals.h
 CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../includes/random.h
 CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o: ../src/GDRelease.cpp
 
@@ -67,6 +68,7 @@ CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../includes/Patch.h
 CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../includes/Point.h
 CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../includes/Seasonality.h
 CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../includes/constants.h
+CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../includes/globals.h
 CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../includes/random.h
 CMakeFiles/gdsimslib.dir/src/Patch.cpp.o: ../src/Patch.cpp
 
@@ -103,6 +105,9 @@ CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o: ../includes/Simulation.h
 CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o: ../includes/constants.h
 CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o: ../includes/inputval.h
 CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o: ../src/Simulation.cpp
+
+CMakeFiles/gdsimslib.dir/src/globals.cpp.o: ../includes/globals.h
+CMakeFiles/gdsimslib.dir/src/globals.cpp.o: ../src/globals.cpp
 
 CMakeFiles/gdsimslib.dir/src/random.cpp.o: ../includes/constants.h
 CMakeFiles/gdsimslib.dir/src/random.cpp.o: ../includes/random.h

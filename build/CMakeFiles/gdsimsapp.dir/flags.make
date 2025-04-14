@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/includes 
+CXX_INCLUDES = -I/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/includes 
 

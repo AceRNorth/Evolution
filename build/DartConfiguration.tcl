@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop
-BuildDirectory: /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build
+SourceDirectory: /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution
+BuildDirectory: /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop"
+ConfigureCommand: "/usr/bin/cmake" "/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

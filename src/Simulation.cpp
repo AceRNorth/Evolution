@@ -279,19 +279,21 @@ void Simulation::set_release_times(const std::filesystem::path& filepath)
  */
 void Simulation::set_inheritance(InheritanceParams inher_params)
 {
-	double gamma = inher_params.gamma;
-	double mother_w,mother_d,mother_r,father_w,father_d,father_r,mother_a,father_a,mother_b,father_b;
+double gamma = inher_params.gamma;
+	double mother_w,mother_d,mother_r1,mother_r2,father_w,father_d,father_r1,father_r2,mother_a,father_a,mother_b,father_b;
 	double mother_e,father_e,xi;
 	int i1,i2,j1,j2,k1,k2;
-	std::cout<<"homing rate A: "<<inher_params.eA<<"  homing rate B: "<<inher_params.eB<<";  fit cost A: "<<inher_params.xiA<<"; fit cost B: "<<inher_params.xiB<<std::endl;
+//	std::cout<<"homing rate A: "<<inher_params.eA<<"  homing rate B: "<<inher_params.eB<<";  fit cost A: "<<inher_params.xiA<<"; fit cost B: "<<inher_params.xiB<<std::endl;
 
+	if(constants::num_gen==18)
+	{
 	for(int i=0;i<constants::num_gen;++i)
 	{
 	for(int j=0;j<constants::num_gen;++j)
 	{
 	for(int k=0;k<constants::num_gen;++k)
 	{
-	mother_w=0;mother_d=0;mother_r=0;father_w=0;father_d=0;father_r=0;mother_a=0;father_a=0;mother_b=0;father_b=0;
+	mother_w=0;mother_d=0;mother_r2=0;father_w=0;father_d=0;father_r2=0;mother_a=0;father_a=0;mother_b=0;father_b=0;
 	i1=1+i % 6;
 	j1=1+j % 6;
 	k1=1+k % 6;
@@ -309,19 +311,19 @@ void Simulation::set_inheritance(InheritanceParams inher_params)
 	if(j2==2){father_e=(inher_params.eA+inher_params.eB)*0.5;};
 	if(j2==3){father_e=inher_params.eB;};
 
-	if(i1==1){mother_w=1;mother_d=0;mother_r=0;};
-	if(i1==2){mother_w=(1-xi)*(1-mother_e-gamma)*0.5;mother_d=(1-xi)*(1+mother_e)*0.5;mother_r=(1-xi)*gamma*0.5;};
-	if(i1==3){mother_w=0;mother_d=0;mother_r=0;};
-	if(i1==4){mother_w=0.5;mother_d=0;mother_r=0.5;};
-	if(i1==5){mother_w=0;mother_d=0;mother_r=0;};
-	if(i1==6){mother_w=0;mother_d=0;mother_r=0;};
+	if(i1==1){mother_w=1;mother_d=0;mother_r2=0;};
+	if(i1==2){mother_w=(1-xi)*(1-mother_e-gamma)*0.5;mother_d=(1-xi)*(1+mother_e)*0.5;mother_r2=(1-xi)*gamma*0.5;};
+	if(i1==3){mother_w=0;mother_d=0;mother_r2=0;};
+	if(i1==4){mother_w=0.5;mother_d=0;mother_r2=0.5;};
+	if(i1==5){mother_w=0;mother_d=0;mother_r2=0;};
+	if(i1==6){mother_w=0;mother_d=0;mother_r2=0;};
 
-	if(j1==1){father_w=1;father_d=0;father_r=0;};
-	if(j1==2){father_w=(1-father_e-gamma)*0.5;father_d=(1+father_e)*0.5;father_r=gamma*0.5;};
-	if(j1==3){father_w=0;father_d=1;father_r=0;};
-	if(j1==4){father_w=0.5;father_d=0;father_r=0.5;};
-	if(j1==5){father_w=0;father_d=0;father_r=1;};
-	if(j1==6){father_w=0;father_d=0.5;father_r=0.5;};
+	if(j1==1){father_w=1;father_d=0;father_r2=0;};
+	if(j1==2){father_w=(1-father_e-gamma)*0.5;father_d=(1+father_e)*0.5;father_r2=gamma*0.5;};
+	if(j1==3){father_w=0;father_d=1;father_r2=0;};
+	if(j1==4){father_w=0.5;father_d=0;father_r2=0.5;};
+	if(j1==5){father_w=0;father_d=0;father_r2=1;};
+	if(j1==6){father_w=0;father_d=0.5;father_r2=0.5;};
 
 	if(i2==1){mother_a=1;mother_b=0;};
 	if(i2==2){mother_a=0.5;mother_b=0.5;};
@@ -334,9 +336,9 @@ void Simulation::set_inheritance(InheritanceParams inher_params)
 	if(k1==1){inher_fraction[i][j][k]=mother_w*father_w;};
 	if(k1==2){inher_fraction[i][j][k]=mother_w*father_d+mother_d*father_w;};
 	if(k1==3){inher_fraction[i][j][k]=mother_d*father_d;};
-	if(k1==4){inher_fraction[i][j][k]=mother_w*father_r+mother_r*father_w;};
-	if(k1==5){inher_fraction[i][j][k]=mother_r*father_r;};
-	if(k1==6){inher_fraction[i][j][k]=mother_r*father_d+mother_d*father_r;};
+	if(k1==4){inher_fraction[i][j][k]=mother_w*father_r2+mother_r2*father_w;};
+	if(k1==5){inher_fraction[i][j][k]=mother_r2*father_r2;};
+	if(k1==6){inher_fraction[i][j][k]=mother_r2*father_d+mother_d*father_r2;};
 	
 	if(k2==1){inher_fraction[i][j][k]*=(mother_a*father_a);};
 	if(k2==2){inher_fraction[i][j][k]*=(mother_a*father_b+mother_b*father_a);};
@@ -344,14 +346,54 @@ void Simulation::set_inheritance(InheritanceParams inher_params)
 	};
 	};
 	};
-/*	for(int i=0;i<constants::num_gen;++i)
+	};
+	if(constants::num_gen==10)
+	{
+	for(int i=0;i<constants::num_gen;++i)
 	{
 	for(int j=0;j<constants::num_gen;++j)
 	{
 	for(int k=0;k<constants::num_gen;++k)
 	{
-		std::cout<<i<<"   "<<j<<"   "<<k<<"   "<<inher_fraction[i][j][k]<<std::endl;
-	}}};*/
+	mother_w=0;mother_d=0;mother_r1=0;mother_r2=0;father_w=0;father_d=0;father_r1=0;father_r2=0;
+	mother_e=inher_params.eA;xi=inher_params.xiA;
+	father_e=inher_params.eA;
+
+	if(i==0){mother_w=1;mother_d=0;mother_r1=0;mother_r2=0;};
+	if(i==1){mother_w=(1-xi)*(1-mother_e-gamma)*0.5;mother_d=(1-xi)*(1+mother_e)*0.5;mother_r2=0;mother_r2=(1-xi)*gamma*0.5;};
+	if(i==2){mother_w=0.5;mother_d=0;mother_r1=0.5;mother_r2=0;};
+	if(i==3){mother_w=0.5;mother_d=0;mother_r1=0;mother_r2=0.5;};
+	if(i==4){mother_w=0;mother_d=0;mother_r1=0;mother_r2=0;};
+	if(i==5){mother_w=0;mother_d=(1-xi)*0.5;mother_r1=(1-xi)*0.5;mother_r2=0;};
+	if(i==6){mother_w=0;mother_d=0;mother_r1=0;mother_r2=0;};
+	if(i==7){mother_w=0;mother_d=0;mother_r1=1;mother_r2=0;};
+	if(i==8){mother_w=0;mother_d=0;mother_r1=0.5;mother_r2=0.5;};
+	if(i==9){mother_w=0;mother_d=0;mother_r1=0;mother_r2=0;};
+	if(j==0){father_w=1;father_d=0;father_r1=0;father_r2=0;};
+	if(j==1){father_w=(1-father_e-gamma)*0.5;father_d=(1+father_e)*0.5;father_r2=0;father_r2=gamma*0.5;};
+	if(j==2){father_w=0.5;father_d=0;father_r1=0.5;father_r2=0;};
+	if(j==3){father_w=0.5;father_d=0;father_r1=0;father_r2=0.5;};
+	if(j==4){father_w=0;father_d=1;father_r1=0;father_r2=0;};
+	if(j==5){father_w=0;father_d=0.5;father_r1=0.5;father_r2=0;};
+	if(j==6){father_w=0;father_d=0;father_r1=0;father_r2=0;};
+	if(j==7){father_w=0;father_d=0;father_r1=1;father_r2=0;};
+	if(j==8){father_w=0;father_d=0;father_r1=0.5;father_r2=0.5;};
+	if(j==9){father_w=0;father_d=0;father_r1=0;father_r2=1;};
+
+	if(k==0){inher_fraction[i][j][k]=mother_w*father_w;};
+	if(k==1){inher_fraction[i][j][k]=mother_w*father_d+mother_d*father_w;};
+	if(k==2){inher_fraction[i][j][k]=mother_w*father_r1+mother_r1*father_w;};
+	if(k==3){inher_fraction[i][j][k]=mother_w*father_r2+mother_r2*father_w;};
+	if(k==4){inher_fraction[i][j][k]=mother_d*father_d;};
+	if(k==5){inher_fraction[i][j][k]=mother_r1*father_d+mother_d*father_r1;};
+	if(k==6){inher_fraction[i][j][k]=mother_r2*father_d+mother_d*father_r2;};
+	if(k==7){inher_fraction[i][j][k]=mother_r1*father_r1;};
+	if(k==8){inher_fraction[i][j][k]=mother_r2*father_r1+mother_r1*father_r2;};
+	if(k==9){inher_fraction[i][j][k]=mother_r2*father_r2;};
+	}
+	}
+	}
+	}	
 }
 
 /**

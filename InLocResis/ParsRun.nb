@@ -1,0 +1,140 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4756,        130]
+NotebookOptionsPosition[      4310,        115]
+NotebookOutlinePosition[      4710,        131]
+CellTagsIndexPosition[      4667,        128]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", " ", "Change"}]}]}], " ", "to", " ", "won", " ", 
+     RowBox[{
+      RowBox[{"directory", "--"}], "--"}]}], "-"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "SetDirectory", "[", 
+     "\"\<~/Dropbox/Doublesex/Resistance/Evolution/InLocResis\>\"", "]"}], 
+    ";"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9536241694698544`*^9, 3.953624190894223*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"e7c501bb-3173-4713-908f-c76a7d9adcee"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"xibli", "=", 
+   RowBox[{"{", 
+    RowBox[{"0.", ",", "0.2", ",", "0.4", ",", "0.6"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pa", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"numruns", "=", "1"}], ",", 
+         RowBox[{"maxT", "=", "150"}], ",", 
+         RowBox[{"NumPat", "=", "20"}], ",", 
+         RowBox[{"muJ", "=", "0.05"}], ",", 
+         RowBox[{"muA", "=", "0.125"}], ",", 
+         RowBox[{"beta", "=", "100"}], ",", 
+         RowBox[{"theta", "=", "9"}], ",", 
+         RowBox[{"meanTL", "=", "0.0667"}], ",", 
+         RowBox[{"mindev", "=", "10"}], ",", 
+         RowBox[{"gamma", "=", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"1", "-", "0.95"}], ")"}], "/", "2"}]}], ",", 
+         RowBox[{"xiA", "=", "0.8"}], ",", 
+         RowBox[{"xiB", "=", 
+          RowBox[{"xibli", "[", 
+           RowBox[{"[", "xx", "]"}], "]"}]}], ",", 
+         RowBox[{"eA", "=", "0.95"}], ",", 
+         RowBox[{"eB", "=", "0.95"}], ",", 
+         RowBox[{"drivertime", "=", "100"}], ",", 
+         RowBox[{"NumDriver", "=", "1000"}], ",", 
+         RowBox[{"NumDriverPat", "=", "1"}], ",", 
+         RowBox[{"d", "=", "0.0005"}], ",", 
+         RowBox[{"Ld", "=", "0.15"}], ",", 
+         RowBox[{"psi", "=", "0"}], ",", 
+         RowBox[{"muAES", "=", "0.9"}], ",", 
+         RowBox[{"thide1", "=", "300"}], ",", 
+         RowBox[{"thide2", "=", "350"}], ",", 
+         RowBox[{"twake1", "=", "140"}], ",", 
+         RowBox[{"twake2", "=", "170"}], ",", 
+         RowBox[{"al0", "=", "5000"}], ",", 
+         RowBox[{"al0var", "=", "0."}], ",", 
+         RowBox[{"al1", "=", "0"}], ",", 
+         RowBox[{"amp", "=", "0"}], ",", 
+         RowBox[{"resp", "=", "1"}], ",", 
+         RowBox[{"recstart", "=", "10"}], ",", 
+         RowBox[{"recend", "=", "10000"}], ",", 
+         RowBox[{"recIntGlob", "=", "10"}], ",", 
+         RowBox[{"recIntLoc", "=", "10"}], ",", 
+         RowBox[{"recsitesfreq", "=", "1"}], ",", 
+         RowBox[{"set", "=", 
+          RowBox[{"xx", "-", "1"}]}], ",", "\"\<t\>\"", ",", "\"\<r\>\"", ",", 
+         RowBox[{"nummut", "=", "10000"}], ",", 
+         RowBox[{"muttime", "=", "20"}], ",", 
+         RowBox[{"mutgen", "=", "2"}]}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{"\"\<Par\>\"", "<>", 
+        RowBox[{"ToString", "[", "set", "]"}], "<>", "\"\<.csv\>\""}], ",", 
+       "pa", ",", "\"\<CSV\>\"", ",", 
+       RowBox[{"\"\<TextDelimiters\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}]}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"xx", ",", "1"}], "}"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.953624514331949*^9, 3.953624543896707*^9}, {
+   3.9536251241950006`*^9, 3.953625145451582*^9}, {3.953625451032362*^9, 
+   3.953625460598751*^9}, {3.953626208721953*^9, 3.9536262294864683`*^9}, {
+   3.953626276575426*^9, 3.953626276891046*^9}, 3.953626343984301*^9},
+ CellLabel->"In[18]:=",ExpressionUUID->"519c0e45-cd23-42d3-9ed6-d23f4df31542"]
+},
+WindowSize->{1440, 743.25},
+WindowMargins->{{900, Automatic}, {Automatic, 315}},
+FrontEndVersion->"14.0 for Linux x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2402aabc-3b17-4f01-8ba3-c0508b64c861"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 610, 18, 70, "Input",ExpressionUUID->"e7c501bb-3173-4713-908f-c76a7d9adcee"],
+Cell[1171, 40, 3135, 73, 150, "Input",ExpressionUUID->"519c0e45-cd23-42d3-9ed6-d23f4df31542"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

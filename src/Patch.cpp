@@ -4,6 +4,7 @@
 #include "Patch.h"
 #include "random.h"
 #include "constants.h"
+#include "globals.h"
 
 /**
  * @brief Patch constructor for randomly generated coordinates.
@@ -86,14 +87,14 @@ void Patch::populate(int initial_WJ, int initial_WM, int initial_WV, int initial
 	int initial_WFB=int(initial_WF/100.0);
 	for (int a=0; a < constants::max_dev + 1; ++a) {
 		J[0][a] += initial_WJ;
-		J[6][a] += initial_WJ;
+	//	J[6][a] += initial_WJ;
 	}	
 	M[0] = initial_WM;
 	V[0] = initial_WV;
 	F[0][0] = initial_WF;
-	M[6] = initial_WMB;
-	V[6] = initial_WVB;
-	F[6][0] = initial_WFB;
+//	M[6] = initial_WMB;
+//	V[6] = initial_WVB;
+//	F[6][0] = initial_WFB;
 
 	update_comp();
 	update_mate();
@@ -262,6 +263,20 @@ void Patch::add_driver_M(int num_driver_M)
 	M[1] += num_driver_M;
 	update_mate();
 }
+
+
+/**
+ * @brief Introduces mutants into the patch.
+ */
+void Patch::add_mutants(int num_mutants) 
+{
+//	J[mutant_genotype][1] += num_mutants;
+//	update_comp();
+	M[mutant_genotype] += num_mutants;
+	update_mate();
+}
+
+
 
 /**
  * @brief Ages the juveniles of different age groups in the patch by a day.

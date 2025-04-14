@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop
+CMAKE_SOURCE_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build
+CMAKE_BINARY_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build
 
 # Utility rule file for Nightly.
 
@@ -71,6 +71,6 @@ CMakeFiles/Nightly.dir/clean:
 .PHONY : CMakeFiles/Nightly.dir/clean
 
 CMakeFiles/Nightly.dir/depend:
-	cd /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build/CMakeFiles/Nightly.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build/CMakeFiles/Nightly.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Nightly.dir/depend
 

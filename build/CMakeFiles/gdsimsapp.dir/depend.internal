@@ -7,5 +7,6 @@ CMakeFiles/gdsimsapp.dir/src/main2.cpp.o
  ../includes/Point.h
  ../includes/Simulation.h
  ../includes/constants.h
+ ../includes/globals.h
  ../includes/inputval.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/main2.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/main2.cpp

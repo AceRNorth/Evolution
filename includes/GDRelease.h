@@ -39,6 +39,8 @@ public:
     RandomGDRelease(ReleaseParams* params);
 private:
     int num_driver_sites; /**< Number of gene drive release sites per release. */ 
+   // int mutant_time; 
+   // int num_mutants; 
     std::vector<Patch*> select_driver_sites(int day, const std::vector<Patch*> &sites) override;
 };
 

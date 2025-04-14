@@ -34,6 +34,10 @@ Point.h
 
 ../includes/constants.h
 
+../includes/globals.h
+vector
+-
+
 ../includes/inputval.h
 iostream
 -
@@ -46,7 +50,7 @@ limits
 sstream
 -
 
-/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/main2.cpp
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/main2.cpp
 iostream
 -
 string
@@ -54,11 +58,13 @@ string
 filesystem
 -
 Simulation.h
-/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Simulation.h
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Simulation.h
 inputval.h
-/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/inputval.h
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/inputval.h
 constants.h
-/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/constants.h
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/constants.h
 Params.h
-/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Params.h
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Params.h
+globals.h
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/globals.h
 

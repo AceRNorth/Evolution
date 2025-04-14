@@ -5,6 +5,7 @@
 #include "inputval.h"
 #include "constants.h"
 #include "Params.h"
+#include "globals.h"
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
@@ -112,10 +113,17 @@ int main() {
     std::cin >> set_label;
     std::cin >> boundary_type;
     std::cin >> disp_type;
+
+    std::cin >> num_mutants;
+    std::cin >> mutant_time;
+    std::cin >> mutant_genotype;
+    
     std::cin >> coords_filename;
     std::cin >> rainfall_filename; 
     std::cin >> rel_times_filename;
 
+	std::cerr<<" mutants  "<<num_mutants<<std::endl;
+	
     InputParams params;
     params.num_runs = num_runs;
     params.max_t = max_t;

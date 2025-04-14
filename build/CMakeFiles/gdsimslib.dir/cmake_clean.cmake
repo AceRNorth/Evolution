@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/gdsimslib.dir/src/Record.cpp.o"
   "CMakeFiles/gdsimslib.dir/src/Seasonality.cpp.o"
   "CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o"
+  "CMakeFiles/gdsimslib.dir/src/globals.cpp.o"
   "CMakeFiles/gdsimslib.dir/src/random.cpp.o"
   "libgdsimslib.a"
   "libgdsimslib.pdb"

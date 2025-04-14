@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop
+CMAKE_SOURCE_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build
+CMAKE_BINARY_DIR = /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -81,7 +81,7 @@ test/fast: test
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -113,9 +113,9 @@ package/fast: package
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build/CMakeFiles /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build/CMakeFiles /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -776,6 +776,33 @@ src/Simulation.cpp.s:
 	$(MAKE) -f CMakeFiles/gdsimslib.dir/build.make CMakeFiles/gdsimslib.dir/src/Simulation.cpp.s
 .PHONY : src/Simulation.cpp.s
 
+src/globals.o: src/globals.cpp.o
+
+.PHONY : src/globals.o
+
+# target to build an object file
+src/globals.cpp.o:
+	$(MAKE) -f CMakeFiles/gdsimslib.dir/build.make CMakeFiles/gdsimslib.dir/src/globals.cpp.o
+.PHONY : src/globals.cpp.o
+
+src/globals.i: src/globals.cpp.i
+
+.PHONY : src/globals.i
+
+# target to preprocess a source file
+src/globals.cpp.i:
+	$(MAKE) -f CMakeFiles/gdsimslib.dir/build.make CMakeFiles/gdsimslib.dir/src/globals.cpp.i
+.PHONY : src/globals.cpp.i
+
+src/globals.s: src/globals.cpp.s
+
+.PHONY : src/globals.s
+
+# target to generate assembly for a file
+src/globals.cpp.s:
+	$(MAKE) -f CMakeFiles/gdsimslib.dir/build.make CMakeFiles/gdsimslib.dir/src/globals.cpp.s
+.PHONY : src/globals.cpp.s
+
 src/main2.o: src/main2.cpp.o
 
 .PHONY : src/main2.o
@@ -898,6 +925,9 @@ help:
 	@echo "... src/Simulation.o"
 	@echo "... src/Simulation.i"
 	@echo "... src/Simulation.s"
+	@echo "... src/globals.o"
+	@echo "... src/globals.i"
+	@echo "... src/globals.s"
 	@echo "... src/main2.o"
 	@echo "... src/main2.i"
 	@echo "... src/main2.s"

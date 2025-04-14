@@ -1,4 +1,4 @@
-# Install script for directory: /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop
+# Install script for directory: /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

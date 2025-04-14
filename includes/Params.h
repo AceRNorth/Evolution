@@ -48,6 +48,8 @@ struct InheritanceParams {
  */ 
 struct ReleaseParams {
 	int num_driver_M; /**< Number of drive heterozygous (WD) male mosquitoes per release. */ 
+	int num_mutants; 
+	int mutant_time; 
 	int num_driver_sites; /**< Number of gene drive release sites per year. */ 
 	std::vector<int> release_times; /**< Days on which the gene drive mosquitoes will be released. */ 
 };

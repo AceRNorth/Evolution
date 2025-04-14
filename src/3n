@@ -4,7 +4,6 @@
 #include "Patch.h"
 #include "globals.h"
 #include "random.h"
-#include <iostream> // for error messages
 
 /**
  * Releases the gene drive mosquitoes into the simulation area if it is time for release.
@@ -19,7 +18,7 @@ void GDRelease::release_gene_drive(int day, std::vector<Patch*> &sites)
     }
     if (day==mutant_time) {
 	int rel_pat = random_discrete(0, sites.size() - 1);
-	std::cerr<<" mutant release in patch "<<rel_pat<<"   "<<num_mutants<<std::endl;
+
 	sites[rel_pat]->add_mutants(num_mutants);
     }
 }

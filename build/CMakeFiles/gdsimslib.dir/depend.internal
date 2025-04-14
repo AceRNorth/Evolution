@@ -13,11 +13,11 @@ CMakeFiles/gdsimslib.dir/src/Aestivation.cpp.o
  ../includes/Seasonality.h
  ../includes/constants.h
  ../includes/random.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Aestivation.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Aestivation.cpp
 CMakeFiles/gdsimslib.dir/src/BoundaryStrategy.cpp.o
  ../includes/BoundaryStrategy.h
  ../includes/Point.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/BoundaryStrategy.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/BoundaryStrategy.cpp
 CMakeFiles/gdsimslib.dir/src/Dispersal.cpp.o
  ../includes/Aestivation.h
  ../includes/BoundaryStrategy.h
@@ -30,7 +30,7 @@ CMakeFiles/gdsimslib.dir/src/Dispersal.cpp.o
  ../includes/Seasonality.h
  ../includes/constants.h
  ../includes/random.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Dispersal.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Dispersal.cpp
 CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o
  ../includes/Aestivation.h
  ../includes/BoundaryStrategy.h
@@ -42,8 +42,9 @@ CMakeFiles/gdsimslib.dir/src/GDRelease.cpp.o
  ../includes/Point.h
  ../includes/Seasonality.h
  ../includes/constants.h
+ ../includes/globals.h
  ../includes/random.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/GDRelease.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/GDRelease.cpp
 CMakeFiles/gdsimslib.dir/src/Model.cpp.o
  ../includes/Aestivation.h
  ../includes/BoundaryStrategy.h
@@ -56,7 +57,7 @@ CMakeFiles/gdsimslib.dir/src/Model.cpp.o
  ../includes/Seasonality.h
  ../includes/constants.h
  ../includes/random.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Model.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Model.cpp
 CMakeFiles/gdsimslib.dir/src/Patch.cpp.o
  ../includes/Aestivation.h
  ../includes/BoundaryStrategy.h
@@ -68,8 +69,9 @@ CMakeFiles/gdsimslib.dir/src/Patch.cpp.o
  ../includes/Point.h
  ../includes/Seasonality.h
  ../includes/constants.h
+ ../includes/globals.h
  ../includes/random.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Patch.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Patch.cpp
 CMakeFiles/gdsimslib.dir/src/Record.cpp.o
  ../includes/Aestivation.h
  ../includes/BoundaryStrategy.h
@@ -82,12 +84,12 @@ CMakeFiles/gdsimslib.dir/src/Record.cpp.o
  ../includes/Record.h
  ../includes/Seasonality.h
  ../includes/constants.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Record.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Record.cpp
 CMakeFiles/gdsimslib.dir/src/Seasonality.cpp.o
  ../includes/Params.h
  ../includes/Seasonality.h
  ../includes/constants.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Seasonality.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Seasonality.cpp
 CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o
  ../includes/Aestivation.h
  ../includes/BoundaryStrategy.h
@@ -103,8 +105,11 @@ CMakeFiles/gdsimslib.dir/src/Simulation.cpp.o
  ../includes/Simulation.h
  ../includes/constants.h
  ../includes/inputval.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/Simulation.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Simulation.cpp
+CMakeFiles/gdsimslib.dir/src/globals.cpp.o
+ ../includes/globals.h
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/globals.cpp
 CMakeFiles/gdsimslib.dir/src/random.cpp.o
  ../includes/constants.h
  ../includes/random.h
- /home/biology/zool0973/Dropbox/Doublesex/Resistance/GeneralMetapop/src/random.cpp
+ /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/random.cpp
