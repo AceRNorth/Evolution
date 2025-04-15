@@ -134,6 +134,10 @@ Point.h
 
 ../includes/constants.h
 
+../includes/globals.h
+vector
+-
+
 ../includes/inputval.h
 iostream
 -
@@ -171,4 +175,6 @@ Record.h
 /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/Record.h
 inputval.h
 /home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/inputval.h
+globals.h
+/home/biology/zool0973/Dropbox/Doublesex/Resistance/Evolution/src/globals.h
 

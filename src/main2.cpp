@@ -37,7 +37,8 @@ int main() {
 	int min_dev;
 
 	// gene drive inheritance parameters
-	double gamma;
+	double gamma1;
+	double gamma2;
 	double xiA;
 	double eA;
 	double xiB;
@@ -84,7 +85,8 @@ int main() {
     std::cin >> theta;
     std::cin >> comp_power;
     std::cin >> min_dev;
-    std::cin >> gamma;
+    std::cin >> gamma1;
+    std::cin >> gamma2;
     std::cin >> xiA;
     std::cin >> xiB;
     std::cin >> eA;
@@ -117,6 +119,8 @@ int main() {
     std::cin >> num_mutants;
     std::cin >> mutant_time;
     std::cin >> mutant_genotype;
+    std::cin >> xi_mut;
+    std::cin >>num_mut_sites;
     
     std::cin >> coords_filename;
     std::cin >> rainfall_filename; 
@@ -134,7 +138,8 @@ int main() {
     params.theta = theta;
     params.comp_power = comp_power;
     params.min_dev = min_dev;
-    params.gamma = gamma;
+    params.gamma1 = gamma1;
+    params.gamma2 = gamma2;
     params.xiA = xiA;
     params.xiB = xiB;
     params.eA = eA;
@@ -180,7 +185,8 @@ int main() {
 
     Simulation simulation(params);
     InheritanceParams inher;
-    inher.gamma = params.gamma;
+    inher.gamma1 = params.gamma1;
+    inher.gamma2 = params.gamma2;
     inher.xiA = params.xiA;
     inher.xiB = params.xiB;
     inher.eA = params.eA;
@@ -202,6 +208,7 @@ int main() {
         simulation.set_release_times(rel_times_filepath);
     }
     simulation.run_reps();
+std::cerr<<"main2  gammas  "<<gamma1<<"   "<<gamma2<<std::endl;
 
     return 0;
 }

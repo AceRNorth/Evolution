@@ -8,8 +8,8 @@
 
 // random number seed
 std::random_device rd;
-//std::mt19937 twister(rd());
-std::mt19937 twister(1);
+std::mt19937 twister(rd());
+//std::mt19937 twister(1);
 
 /**
  * Returns a random floating-point number from a uniform real distribution of 0.0 to 1.0.

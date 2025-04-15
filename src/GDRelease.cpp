@@ -18,9 +18,23 @@ void GDRelease::release_gene_drive(int day, std::vector<Patch*> &sites)
         put_driver_sites(rel_sites);
     }
     if (day==mutant_time) {
-	int rel_pat = random_discrete(0, sites.size() - 1);
-	std::cerr<<" mutant release in patch "<<rel_pat<<"   "<<num_mutants<<std::endl;
-	sites[rel_pat]->add_mutants(num_mutants);
+
+    int num_rel_sites = std::min(int(sites.size()), num_mut_sites);
+    std::vector<int> rel_patches; // patches in which to release the mutants
+	while (rel_patches.size() < num_rel_sites) {
+		int rel_pat = random_discrete(0, sites.size() - 1);
+		auto is_unique = (rel_patches.end() == std::find(rel_patches.begin(), rel_patches.end(), rel_pat));
+		if (is_unique) { 
+			rel_patches.push_back(rel_pat);
+		}
+	}
+	    //int rel_pat = random_discrete(0, sites.size() - 1);
+	for(int i=0;i<rel_patches.size();i++)
+	{
+		int rel_pat=rel_patches[i];
+		sites[rel_pat]->add_mutants(num_mutants);
+	}
+//	std::cerr<<" mutant release in patch "<<rel_pat<<"   "<<num_mutants<<std::endl;
     }
 }
 
