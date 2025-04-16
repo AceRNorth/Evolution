@@ -418,13 +418,13 @@ void Simulation::set_inheritance(InheritanceParams inher_params)
 	if(j1==5){father_w=0;father_d=0;father_r2=1;};
 	if(j1==6){father_w=0;father_d=0.5;father_r2=0.5;};
 
-	if(i2==1){mother_a=1;mother_b=0;};
+	if(i2==1){mother_a=1-gamma1;mother_b=gamma1;};
 	if(i2==2){mother_a=0.5;mother_b=0.5;};
-	if(i2==3){mother_a=0;mother_b=1;};
+	if(i2==3){mother_a=gamma1;mother_b=1-gamma1;};
 	
-	if(j2==1){father_a=1;father_b=0;};
+	if(j2==1){father_a=1-gamma1;father_b=gamma1;};
 	if(j2==2){father_a=0.5;father_b=0.5;};
-	if(j2==3){father_a=0;father_b=1;};
+	if(j2==3){father_a=gamma1;father_b=1-gamma1;};
 
 	if(k1==1){inher_fraction[i][j][k]=mother_w*father_w;};
 	if(k1==2){inher_fraction[i][j][k]=mother_w*father_d+mother_d*father_w;};
