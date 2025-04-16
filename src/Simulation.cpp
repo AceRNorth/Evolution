@@ -283,7 +283,6 @@ void Simulation::set_inheritance(InheritanceParams inher_params)
 	double gamma1 = inher_params.gamma1;
 	double gamma2 = inher_params.gamma2;
 
-	std::cerr<<"  gammas  "<<gamma1<<"   "<<gamma2<<std::endl;
 
 	double mother_w,mother_d,mother_r1,mother_r2,father_w,father_d,father_r1,father_r2,mother_a,father_a,mother_b,father_b;
 	double mother_e,father_e,xi;

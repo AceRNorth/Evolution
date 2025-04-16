@@ -208,7 +208,6 @@ int main() {
         simulation.set_release_times(rel_times_filepath);
     }
     simulation.run_reps();
-std::cerr<<"main2  gammas  "<<gamma1<<"   "<<gamma2<<std::endl;
 
     return 0;
 }
